@@ -1,0 +1,290 @@
+<!--
+  analyzewithasim.github.io - Single-file interactive portfolio
+  - Copy this entire file to `index.html` at the root of your repository named `analyzewithasim.github.io`
+  - Tailwind is loaded via CDN (no build step). Chart.js used for an interactive skills donut.
+  - Customize the PROJECTS array in the <script> section to add your projects, links and descriptions.
+  - See bottom of file for quick deployment & git push instructions (inside <!-- DEPLOY --> comment).
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asim Pardeshi — Data & Analytics Portfolio</title>
+  <meta name="description" content="Asim Pardeshi — Data Analytics projects, Power BI, SQL, Python, Portfolio" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <!-- Tailwind Play CDN (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* small custom styles */
+    html { scroll-behavior: smooth }
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-slate-100 antialiased">
+  <div class="min-h-screen flex flex-col">
+    <!-- NAV -->
+    <header class="sticky top-0 z-30 glass border-b border-slate-700 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+        <a href="#home" class="flex items-center gap-3 text-lg font-semibold">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-xl">A</div>
+          analyzewithasim
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#projects" class="hover:underline">Projects</a>
+          <a href="#skills" class="hover:underline">Skills</a>
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+          <button id="themeToggle" class="px-3 py-1 rounded-md bg-slate-700/60">Toggle Theme</button>
+        </nav>
+        <div class="md:hidden">
+          <button id="mobileMenuBtn" class="px-3 py-2 bg-slate-700/50 rounded">Menu</button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden border-t border-slate-700">
+        <div class="p-4 flex flex-col gap-3">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="home" class="flex-1">
+      <section class="max-w-6xl mx-auto p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Hi, I’m <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">Asim Pardeshi</span></h1>
+          <p class="mt-4 text-slate-300 max-w-xl">I build data-driven dashboards, write SQL that sings, and turn messy datasets into clear decisions. Currently transitioning into Data Analytics with strong Power BI, Python, SQL and Excel experience.</p>
+
+          <div class="mt-6 flex gap-3">
+            <a class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded shadow" href="#projects">See Projects</a>
+            <a class="inline-flex items-center gap-2 border border-slate-600 px-4 py-2 rounded" href="https://github.com/analyzewithasim" target="_blank">GitHub</a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 gap-3 max-w-sm">
+            <div class="p-3 rounded bg-slate-800/60">
+              <div class="text-xs uppercase text-slate-400">Experience</div>
+              <div class="font-semibold">2+ years</div>
+            </div>
+            <div class="p-3 rounded bg-slate-800/60">
+              <div class="text-xs uppercase text-slate-400">Tools</div>
+              <div class="font-semibold">Power BI • SQL • Python</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-700">
+          <canvas id="skillChart" width="400" height="400" aria-label="Skills chart"></canvas>
+          <div class="mt-4 text-sm text-slate-300">Hover or tap the donut to see skill breakdown. Edit values in the code to reflect yourself.</div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="max-w-6xl mx-auto p-6 md:p-10">
+        <div class="flex items-center justify-between">
+          <h2 class="text-2xl font-bold">Projects</h2>
+          <div class="text-sm text-slate-400">Click a project for details</div>
+        </div>
+
+        <div id="projectGrid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Project cards are injected by JS -->
+        </div>
+      </section>
+
+      <!-- SKILLS + ABOUT -->
+      <section id="skills" class="max-w-6xl mx-auto p-6 md:p-10 grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold">Skills & Tools</h3>
+          <ul class="mt-4 space-y-2 text-slate-300">
+            <li>Power BI — Dashboarding, DAX, Data modelling</li>
+            <li>SQL & MySQL — ETL, joins, window functions</li>
+            <li>Python (Pandas) — Cleaning, analysis, automation</li>
+            <li>Excel & Advanced formulas — Quick analysis & reporting</li>
+            <li>Power Query, Data storytelling, Visual design</li>
+          </ul>
+        </div>
+        <div id="about" class="p-6 rounded-xl bg-slate-800/50 border border-slate-700">
+          <h3 class="text-xl font-semibold">About me</h3>
+          <p class="mt-3 text-slate-300">I have experience in study-abroad consulting and process management, and I'm now focused on becoming a job-ready Data Analyst. I enjoy building dashboards that help teams find the story inside the data.</p>
+          <div class="mt-4 text-sm text-slate-400">Quick highlights: Road Accident Analysis, Uber Trip Data Analysis, multiple Power BI dashboards.</div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="max-w-6xl mx-auto p-6 md:p-10">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-xl font-semibold">Let’s collaborate</h3>
+            <p class="mt-3 text-slate-300">Interested in a project, collaboration, or hiring me? Send a short message.</p>
+            <div class="mt-4 flex flex-col gap-3 max-w-md">
+              <a class="px-4 py-2 rounded bg-green-600 inline-block" href="mailto:asim@example.com">Email me</a>
+              <a class="px-4 py-2 rounded border border-slate-600 inline-block" href="https://www.linkedin.com/in/asim" target="_blank">LinkedIn</a>
+              <a class="px-4 py-2 rounded border border-slate-600 inline-block" href="https://github.com/analyzewithasim" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="p-6 rounded-xl bg-slate-800/50 border border-slate-700">
+            <form id="contactForm" class="flex flex-col gap-3">
+              <input class="p-3 rounded bg-slate-900/30" type="text" placeholder="Your name" required />
+              <input class="p-3 rounded bg-slate-900/30" type="email" placeholder="Your email" required />
+              <textarea class="p-3 rounded bg-slate-900/30" placeholder="Message" rows="4" required></textarea>
+              <div class="flex gap-3">
+                <button type="submit" class="px-4 py-2 bg-indigo-600 rounded">Send</button>
+                <button type="button" id="copyEmail" class="px-4 py-2 border rounded">Copy email</button>
+              </div>
+              <div id="formMsg" class="text-sm text-green-400 hidden">Thanks! This is demo-only — open your email to send.</div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-800 p-4 text-center text-sm text-slate-400">
+      Built with ❤️ by Asim • <a href="https://github.com/analyzewithasim/analyzewithasim.github.io" target="_blank">Source</a>
+    </footer>
+  </div>
+
+  <!-- Project detail modal -->
+  <div id="projectModal" class="fixed inset-0 z-40 hidden items-center justify-center bg-black/60 p-4">
+    <div class="bg-slate-900 rounded-xl max-w-3xl w-full p-6 border border-slate-700">
+      <button id="closeModal" class="float-right">Close</button>
+      <h3 id="modalTitle" class="text-2xl font-bold"></h3>
+      <p id="modalDesc" class="mt-3 text-slate-300"></p>
+      <div id="modalLinks" class="mt-4 flex gap-3"></div>
+    </div>
+  </div>
+
+  <script>
+    // ----- CONFIG: edit these project cards -----
+    const PROJECTS = [
+      {
+        id: 'powerbi-dashboard',
+        title: 'YTD Performance Dashboard (Power BI)',
+        short: 'Interactive Power BI dashboard to analyze year-to-date performance and root causes of lagging KPIs.',
+        desc: 'Built data model, wrote DAX measures for MTD and YOY comparisons, and improved team insights with drill-throughs and filters. Impact: identified 3 underperforming regions saving 12% cost.' ,
+        github: 'https://github.com/analyzewithasim/powerbi-ytd',
+        demo: '#'
+      },
+      {
+        id: 'uber-analysis',
+        title: 'Uber Trip Data Analysis (Power BI)',
+        short: 'End-to-end ETL and dashboarding of Uber trip dataset to find demand hotspots.',
+        desc: 'Cleaned and transformed trip data, created heatmaps and time-of-day analysis to uncover peak demand windows. Produced stakeholder-ready slides.',
+        github: 'https://github.com/analyzewithasim/uber-analysis',
+        demo: '#'
+      },
+      // Add more projects here
+    ];
+
+    // render project cards
+    const grid = document.getElementById('projectGrid');
+    PROJECTS.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'p-4 rounded-lg glass border border-slate-700 hover:scale-105 transition-transform';
+      card.innerHTML = `
+        <h4 class="font-semibold">${p.title}</h4>
+        <p class="mt-2 text-sm text-slate-300">${p.short}</p>
+        <div class="mt-4 flex gap-2">
+          <button class="openBtn px-3 py-1 rounded bg-indigo-600" data-id="${p.id}">Details</button>
+          <a class="px-3 py-1 rounded border" href="${p.github}" target="_blank">Code</a>
+          <a class="px-3 py-1 rounded border" href="${p.demo}" target="_blank">Demo</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // modal logic
+    const modal = document.getElementById('projectModal');
+    document.addEventListener('click', (e) => {
+      if (e.target.matches('.openBtn')) {
+        const id = e.target.dataset.id;
+        const proj = PROJECTS.find(x => x.id === id);
+        document.getElementById('modalTitle').textContent = proj.title;
+        document.getElementById('modalDesc').textContent = proj.desc;
+        const links = document.getElementById('modalLinks'); links.innerHTML = '';
+        const g = document.createElement('a'); g.href = proj.github; g.textContent = 'GitHub'; g.target = '_blank'; g.className = 'px-3 py-1 rounded border';
+        links.appendChild(g);
+        const d = document.createElement('a'); d.href = proj.demo; d.textContent = 'Live Demo'; d.target = '_blank'; d.className = 'px-3 py-1 rounded border';
+        links.appendChild(d);
+        modal.classList.remove('hidden'); modal.classList.add('flex');
+      }
+      if (e.target.id === 'closeModal' || e.target === modal) {
+        modal.classList.add('hidden'); modal.classList.remove('flex');
+      }
+    });
+
+    // mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+
+    // contact form (demo-only)
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      document.getElementById('formMsg').classList.remove('hidden');
+    });
+    document.getElementById('copyEmail').addEventListener('click', ()=>{
+      navigator.clipboard.writeText('asim@example.com');
+      alert('Email copied to clipboard');
+    });
+
+    // theme toggle: simple class flip
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', ()=>{
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        document.body.style.background = 'linear-gradient(to bottom, #0f172a, #020617)';
+      } else {
+        document.body.style.background = ''; // revert
+      }
+    });
+
+    // skill chart
+    const ctx = document.getElementById('skillChart').getContext('2d');
+    const skillChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Power BI','SQL','Python','Excel','Data Viz'],
+        datasets: [{
+          data: [30,25,20,15,10],
+          hoverOffset: 8,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#cbd5e1' } }
+        }
+      }
+    });
+  </script>
+
+  <!-- DEPLOY: quick steps to publish on GitHub Pages -->
+  <!--
+    1) Create a repository named EXACTLY: analyzewithasim.github.io
+    2) Put this file as `index.html` at the repo root.
+    3) Quick git commands (run locally in your project folder):
+
+       git init
+       git add index.html
+       git commit -m "Initial site"
+       gh repo create analyzewithasim.github.io --public --source=. --push
+
+       (If you don't have gh CLI use:)
+       git remote add origin https://github.com/USERNAME/analyzewithasim.github.io.git
+       git push -u origin main
+
+    4) Visit: https://analyzewithasim.github.io  (changes publish within a minute or two)
+
+    Tips:
+    - Replace placeholder emails/links in the file with your real ones.
+    - For images, add an `assets/` folder and reference them with relative paths.
+    - To add more projects, edit the PROJECTS array near the top of the JS.
+  -->
+</body>
+</html>
