@@ -2,129 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asim Pardeshi | Data Analytics Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Asim Pardeshi | Data Analyst Portfolio</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #0f1117;
+      color: #f4f4f9;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(90deg, #141824, #1f2335);
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #61dafb;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+      color: #d0d0d0;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #61dafb;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+
+    .section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #61dafb;
+      font-size: 2rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: #1c1f2e;
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+    .project-card h3 {
+      margin-top: 0;
+      color: #61dafb;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #61dafb;
+      color: #0f1117;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #4fb6d7;
+    }
+
+    .resume {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .contact {
+      text-align: center;
+    }
+    .contact p {
+      margin: 0.4rem 0;
+    }
+    .contact a {
+      color: #61dafb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact a:hover {
+      color: #fff;
+    }
+
+    footer {
+      background: #141824;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center bg-white px-6 py-4 shadow-md sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-indigo-600">AnalyzeWithAsim</h1>
-    <div class="space-x-6">
-      <a href="#about" class="hover:text-indigo-600">About</a>
-      <a href="#projects" class="hover:text-indigo-600">Projects</a>
-      <a href="#skills" class="hover:text-indigo-600">Skills</a>
-      <a href="#contact" class="hover:text-indigo-600">Contact</a>
-      <a href="YOUR_RESUME_LINK.pdf" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Resume</a>
-    </div>
-  </nav>
+<body>
+  <header>
+    <h1>Asim Pardeshi</h1>
+    <p>Data Analyst | Python | Power BI | SQL | Excel</p>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="#resume">Resume</a>
+    </nav>
+  </header>
 
-  <!-- Hero -->
-  <section class="text-center py-20 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-    <h2 class="text-4xl font-bold mb-4">Hi, I'm Asim Pardeshi</h2>
-    <p class="text-lg mb-6">Data Analyst | Power BI | SQL | Python | Excel</p>
-    <a href="#projects" class="bg-white text-indigo-600 px-6 py-3 rounded-md font-semibold shadow hover:bg-gray-100 transition">See My Work</a>
-  </section>
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Road Accident Analysis</h3>
+        <p>Interactive Power BI dashboard analyzing accident trends, identifying hotspots, and suggesting actionable insights.</p>
+        <a href="https://github.com/analyzewithasim/Road-Accident-Analysis" class="btn" target="_blank">GitHub</a>
+      </div>
 
-  <!-- About -->
-  <section id="about" class="max-w-4xl mx-auto py-16 px-6 text-center">
-    <h3 class="text-3xl font-bold mb-6">About Me</h3>
-    <p class="mb-6">I’m a Data Analyst passionate about turning raw data into actionable insights. Skilled in SQL, Python, Power BI, and Excel, I love solving business problems and building interactive dashboards.</p>
-    <a href="YOUR_RESUME_LINK.pdf" target="_blank" class="bg-indigo-600 text-white px-5 py-2 rounded-md hover:bg-indigo-700 transition">Download Resume</a>
-  </section>
+      <div class="project-card">
+        <h3>Uber Trip Data Analysis</h3>
+        <p>Data analysis using Power BI to uncover trip frequency, revenue patterns, and peak demand hours.</p>
+        <a href="https://github.com/analyzewithasim/Uber-Trip-Data" class="btn" target="_blank">GitHub</a>
+      </div>
 
-  <!-- Projects -->
-  <section id="projects" class="bg-gray-50 py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-center mb-12">Projects</h3>
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Project cards auto-generated by JS -->
+      <div class="project-card">
+        <h3>SQL Employee Database</h3>
+        <p>Designed and optimized SQL queries for employee database management and performance reporting.</p>
+        <a href="https://github.com/analyzewithasim/SQL-Employee-DB" class="btn" target="_blank">GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="max-w-4xl mx-auto py-16 px-6 text-center">
-    <h3 class="text-3xl font-bold mb-6">Skills</h3>
-    <canvas id="skillsChart" class="mx-auto w-64 h-64"></canvas>
+  <section class="section resume" id="resume">
+    <h2>Resume</h2>
+    <p>Click below to view or download my resume.</p>
+    <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+    <!-- Upload resume.pdf to the repo root for this to work -->
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-indigo-600 text-white py-16 text-center">
-    <h3 class="text-3xl font-bold mb-6">Get in Touch</h3>
-    <p class="mb-6">Let’s connect and collaborate! </p>
-    <div class="space-x-6">
-      <a href="mailto:asim@example.com" class="underline">Email</a>
-      <a href="https://github.com/analyzewithasim" target="_blank" class="underline">GitHub</a>
-      <a href="https://linkedin.com/in/asim" target="_blank" class="underline">LinkedIn</a>
-    </div>
+  <section class="section contact" id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:asim.analystdata@gmail.com">asim.analystdata@gmail.com</a></p>
+    <p>Phone: 9876543210</p>
+    <p>Address: Hyderabad</p>
+    <p>Instagram: <a href="https://instagram.com/analyzewithasim" target="_blank">@analyzewithasim</a></p>
   </section>
 
-  <script>
-    // Project data
-    const PROJECTS = [
-      {
-        title: "Road Accident Analysis Dashboard",
-        short: "Interactive Power BI dashboard analyzing accident trends.",
-        desc: "Built a dashboard to identify accident hotspots, time-based patterns, and vehicle involvement to improve road safety measures.",
-        github: "https://github.com/analyzewithasim/road-accident-analysis",
-        demo: "#"
-      },
-      {
-        title: "Uber Trip Data Analysis",
-        short: "SQL + Power BI project for trip insights.",
-        desc: "Analyzed Uber trip data to explore demand patterns, trip durations, and peak hours, helping optimize resource allocation.",
-        github: "https://github.com/analyzewithasim/uber-trip-analysis",
-        demo: "#"
-      },
-      {
-        title: "Sales Performance Dashboard",
-        short: "Excel & Power BI driven business insights.",
-        desc: "Created an interactive dashboard highlighting sales trends, regional performance, and revenue drivers for business teams.",
-        github: "https://github.com/analyzewithasim/sales-performance",
-        demo: "#"
-      },
-      {
-        title: "SQL Database Management Project",
-        short: "End-to-end database system project.",
-        desc: "Designed and implemented a relational database system, optimized queries, and generated reports for streamlined business operations.",
-        github: "https://github.com/analyzewithasim/sql-database-project",
-        demo: "#"
-      }
-    ];
-
-    // Render projects
-    const projectGrid = document.querySelector("#projects .grid");
-    PROJECTS.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "bg-white p-6 rounded-lg shadow hover:shadow-lg hover:-translate-y-1 transform transition";
-      card.innerHTML = `
-        <h4 class="text-xl font-semibold mb-2">${p.title}</h4>
-        <p class="text-gray-600 mb-4">${p.short}</p>
-        <div class="space-x-4">
-          <a href="${p.github}" target="_blank" class="text-indigo-600 font-medium hover:underline">GitHub</a>
-          <a href="${p.demo}" target="_blank" class="text-indigo-600 font-medium hover:underline">Demo</a>
-        </div>
-      `;
-      card.onclick = () => alert(p.desc);
-      projectGrid.appendChild(card);
-    });
-
-    // Skills Chart
-    const ctx = document.getElementById("skillsChart").getContext("2d");
-    new Chart(ctx, {
-      type: "doughnut",
-      data: {
-        labels: ["Python", "SQL", "Power BI", "Excel", "Data Analysis"],
-        datasets: [{
-          data: [90, 85, 80, 75, 70],
-          backgroundColor: ["#6366f1", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981"]
-        }]
-      },
-      options: { responsive: true, plugins: { legend: { position: "bottom" } } }
-    });
-  </script>
+  <footer>
+    <p>&copy; 2025 Asim Pardeshi | Built with ❤️ and lots of coffee</p>
+  </footer>
 </body>
 </html>
+
 
