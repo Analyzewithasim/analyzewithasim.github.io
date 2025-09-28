@@ -1,236 +1,432 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Asim Pardeshi — Data & Analytics Portfolio</title>
-  <meta name="description" content="Asim Pardeshi — Data Analytics projects, Power BI, SQL, Python, Portfolio" />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    html { scroll-behavior: smooth }
-    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen - Data Analyst Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-slate-100 antialiased">
-  <div class="min-h-screen flex flex-col">
-    <!-- NAV -->
-    <header class="sticky top-0 z-30 glass border-b border-slate-700 backdrop-blur-md">
-      <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-        <a href="#home" class="flex items-center gap-3 text-lg font-semibold">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-pink-500 flex items-center justify-center text-xl">A</div>
-          analyzewithasim
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#projects" class="hover:underline">Projects</a>
-          <a href="#skills" class="hover:underline">Skills</a>
-          <a href="#about" class="hover:underline">About</a>
-          <a href="#contact" class="hover:underline">Contact</a>
-          <a href="assets/Asim_Pardeshi_Resume.pdf" target="_blank" class="px-3 py-1 rounded-md bg-indigo-600 hover:bg-indigo-500">Resume</a>
-        </nav>
-        <div class="md:hidden">
-          <button id="mobileMenuBtn" class="px-3 py-2 bg-slate-700/50 rounded">Menu</button>
-        </div>
-      </div>
-      <div id="mobileMenu" class="hidden md:hidden border-t border-slate-700">
-        <div class="p-4 flex flex-col gap-3">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-          <a href="assets/Asim_Pardeshi_Resume.pdf" target="_blank" class="text-indigo-400">Resume</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <main id="home" class="flex-1">
-      <section class="max-w-6xl mx-auto p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Hi, I’m 
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">Asim Pardeshi</span>
-          </h1>
-          <p class="mt-4 text-slate-300 max-w-xl">
-            I build data-driven dashboards, write SQL that sings, and turn messy datasets into clear decisions. 
-            Currently transitioning into Data Analytics with strong Power BI, Python, SQL and Excel experience.
-          </p>
-
-          <div class="mt-6 flex gap-3">
-            <a class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded shadow" href="#projects">See Projects</a>
-            <a class="inline-flex items-center gap-2 border border-slate-600 px-4 py-2 rounded" href="https://github.com/analyzewithasim" target="_blank">GitHub</a>
-          </div>
-
-          <div class="mt-8 grid grid-cols-2 gap-3 max-w-sm">
-            <div class="p-3 rounded bg-slate-800/60">
-              <div class="text-xs uppercase text-slate-400">Experience</div>
-              <div class="font-semibold">2+ years</div>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-gray-800">Alex Chen</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="#skills" class="text-gray-600 hover:text-blue-600 transition duration-300">Skills</a>
+                    <a href="#projects" class="text-gray-600 hover:text-blue-600 transition duration-300">Projects</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <div class="p-3 rounded bg-slate-800/60">
-              <div class="text-xs uppercase text-slate-400">Tools</div>
-              <div class="font-semibold">Power BI • SQL • Python</div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
+                <a href="#skills" class="block py-2 text-gray-600 hover:text-blue-600">Skills</a>
+                <a href="#projects" class="block py-2 text-gray-600 hover:text-blue-600">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
             </div>
-          </div>
         </div>
+    </nav>
 
-        <div class="p-6 rounded-2xl bg-slate-800/40 border border-slate-700">
-          <canvas id="skillChart" width="400" height="400"></canvas>
-          <div class="mt-4 text-sm text-slate-300">Hover or tap the donut to see skill breakdown.</div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="max-w-6xl mx-auto p-6 md:p-10">
-        <div class="flex items-center justify-between">
-          <h2 class="text-2xl font-bold">Projects</h2>
-        </div>
-        <div id="projectGrid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-      </section>
-
-      <!-- SKILLS + ABOUT -->
-      <section id="skills" class="max-w-6xl mx-auto p-6 md:p-10 grid md:grid-cols-2 gap-8">
-        <div>
-          <h3 class="text-xl font-semibold">Skills & Tools</h3>
-          <ul class="mt-4 space-y-2 text-slate-300">
-            <li>Power BI — Dashboarding, DAX, Data modelling</li>
-            <li>SQL & MySQL — ETL, joins, window functions</li>
-            <li>Python (Pandas) — Cleaning, analysis, automation</li>
-            <li>Excel & Advanced formulas — Quick analysis & reporting</li>
-            <li>Power Query, Data storytelling, Visual design</li>
-          </ul>
-        </div>
-        <div id="about" class="p-6 rounded-xl bg-slate-800/50 border border-slate-700">
-          <h3 class="text-xl font-semibold">About me</h3>
-          <p class="mt-3 text-slate-300">
-            I have experience in study-abroad consulting and process management, and I'm now focused on becoming a job-ready Data Analyst. 
-            I enjoy building dashboards that help teams find the story inside the data.
-          </p>
-          <div class="mt-4 text-sm text-slate-400">Quick highlights: Road Accident Analysis, Uber Trip Data Analysis, multiple Power BI dashboards.</div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="max-w-6xl mx-auto p-6 md:p-10">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h3 class="text-xl font-semibold">Let’s collaborate</h3>
-            <p class="mt-3 text-slate-300">Interested in a project, collaboration, or hiring me? Reach out directly:</p>
-            <div class="mt-4 space-y-2 text-slate-300">
-              <div><strong>Email:</strong> <a href="mailto:asim.analystdata@gmail.com" class="text-indigo-400">asim.analystdata@gmail.com</a></div>
-              <div><strong>Phone:</strong> 9876543210</div>
-              <div><strong>Address:</strong> Hyderabad</div>
-              <div><strong>Instagram:</strong> <a href="https://instagram.com/readwithasim" target="_blank" class="text-pink-400">@readwithasim</a></div>
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center justify-center text-white pt-16">
+        <div class="text-center px-4 fade-in-up">
+            <div class="w-32 h-32 mx-auto mb-8 bg-white rounded-full flex items-center justify-center">
+                <svg class="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
             </div>
-          </div>
-          <div class="p-6 rounded-xl bg-slate-800/50 border border-slate-700">
-            <form id="contactForm" class="flex flex-col gap-3">
-              <input class="p-3 rounded bg-slate-900/30" type="text" placeholder="Your name" required />
-              <input class="p-3 rounded bg-slate-900/30" type="email" placeholder="Your email" required />
-              <textarea class="p-3 rounded bg-slate-900/30" placeholder="Message" rows="4" required></textarea>
-              <div class="flex gap-3">
-                <button type="submit" class="px-4 py-2 bg-indigo-600 rounded">Send</button>
-                <button type="button" id="copyEmail" class="px-4 py-2 border rounded">Copy email</button>
-              </div>
-              <div id="formMsg" class="text-sm text-green-400 hidden">Thanks! (Demo-only form)</div>
-            </form>
-          </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Alex Chen</h1>
+            <h2 class="text-2xl md:text-3xl mb-6 text-blue-100">Data Analyst & Insights Specialist</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-blue-50">
+                Transforming complex data into actionable insights that drive business growth and strategic decision-making
+            </p>
+            <div class="space-x-4">
+                <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition duration-300">View My Work</a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300">Get In Touch</a>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="border-t border-slate-800 p-4 text-center text-sm text-slate-400">
-      Built with ❤️ by Asim • <a href="https://github.com/analyzewithasim/analyzewithasim.github.io" target="_blank">Source</a>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="w-64 h-64 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
+                        <svg class="w-32 h-32 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/>
+                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Passionate About Data-Driven Solutions</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        With over 4 years of experience in data analysis, I specialize in extracting meaningful insights from complex datasets. My expertise spans across statistical analysis, data visualization, and predictive modeling.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I have successfully helped organizations increase revenue by 25% through data-driven marketing strategies and reduced operational costs by 30% through process optimization analytics.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            <div class="text-3xl font-bold text-blue-600">50+</div>
+                            <div class="text-gray-600">Projects Completed</div>
+                        </div>
+                        <div class="text-center p-4 bg-purple-50 rounded-lg">
+                            <div class="text-3xl font-bold text-purple-600">4+</div>
+                            <div class="text-gray-600">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Technical Skills</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8">Programming & Tools</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">Python</span>
+                                <span class="text-gray-600">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-blue-600 h-3 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">SQL</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-green-600 h-3 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">R</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-purple-600 h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">Tableau</span>
+                                <span class="text-gray-600">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="skill-bar bg-orange-600 h-3 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8">Specializations</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
+                            <div class="text-3xl mb-3">📊</div>
+                            <h4 class="font-semibold text-gray-800">Data Visualization</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
+                            <div class="text-3xl mb-3">🤖</div>
+                            <h4 class="font-semibold text-gray-800">Machine Learning</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
+                            <div class="text-3xl mb-3">📈</div>
+                            <h4 class="font-semibold text-gray-800">Statistical Analysis</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center card-hover">
+                            <div class="text-3xl mb-3">🎯</div>
+                            <h4 class="font-semibold text-gray-800">Business Intelligence</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Customer Segmentation Analysis</h3>
+                        <p class="text-gray-600 mb-4">Used K-means clustering to segment customers, resulting in 20% increase in targeted marketing effectiveness.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Scikit-learn</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Pandas</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sales Forecasting Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Built interactive dashboard predicting sales trends with 92% accuracy using time series analysis.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Tableau</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">R</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">ARIMA</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 2a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">A/B Testing Framework</h3>
+                        <p class="text-gray-600 mb-4">Developed statistical framework for A/B testing that improved conversion rates by 15% across campaigns.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">SciPy</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Statistics</span>
+                        </div>
+                        <button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition duration-300">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Let's Work Together</h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                <p class="text-xl text-blue-100">Ready to turn your data into actionable insights?</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            <span>alex.chen@email.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 mr-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
+                            </svg>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold mb-4">Connect With Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-100 focus:outline-none focus:border-white focus:bg-opacity-30 transition duration-300">
+                        </div>
+                        <div>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-100 focus:outline-none focus:border-white focus:bg-opacity-30 transition duration-300">
+                        </div>
+                        <div>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-blue-100 focus:outline-none focus:border-white focus:bg-opacity-30 transition duration-300 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024 Alex Chen. All rights reserved. Built with passion for data and design.</p>
+        </div>
     </footer>
-  </div>
 
-  <!-- MODAL -->
-  <div id="projectModal" class="fixed inset-0 z-40 hidden items-center justify-center bg-black/60 p-4">
-    <div class="bg-slate-900 rounded-xl max-w-3xl w-full p-6 border border-slate-700">
-      <button id="closeModal" class="float-right">Close</button>
-      <h3 id="modalTitle" class="text-2xl font-bold"></h3>
-      <p id="modalDesc" class="mt-3 text-slate-300"></p>
-      <div id="modalLinks" class="mt-4 flex gap-3"></div>
-    </div>
-  </div>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
 
-  <script>
-    const PROJECTS = [
-      {
-        id: 'powerbi-dashboard',
-        title: 'YTD Performance Dashboard (Power BI)',
-        short: 'Interactive dashboard to analyze YTD performance and KPIs.',
-        desc: 'Built data model, DAX measures for MTD and YOY comparisons. Identified underperforming regions saving 12% cost.',
-        github: 'https://github.com/analyzewithasim/powerbi-ytd'
-      },
-      {
-        id: 'uber-analysis',
-        title: 'Uber Trip Data Analysis (Power BI)',
-        short: 'ETL + dashboarding of Uber trips to uncover demand hotspots.',
-        desc: 'Transformed data, created heatmaps and peak-hour analysis. Produced actionable insights for stakeholders.',
-        github: 'https://github.com/analyzewithasim/uber-analysis'
-      },
-      {
-        id: 'accident-analysis',
-        title: 'Road Accident Analysis (Power BI)',
-        short: 'Dashboard to explore accident hotspots & trends.',
-        desc: 'Cleaned accident data, applied DAX for severity analysis, and visualized accident density by state and time.',
-        github: 'https://github.com/analyzewithasim/road-accident-analysis'
-      }
-    ];
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
 
-    // render cards
-    const grid = document.getElementById('projectGrid');
-    PROJECTS.forEach(p => {
-      const card = document.createElement('article');
-      card.className = 'p-4 rounded-lg glass border border-slate-700 hover:scale-105 transition-transform';
-      card.innerHTML = `
-        <h4 class="font-semibold">${p.title}</h4>
-        <p class="mt-2 text-sm text-slate-300">${p.short}</p>
-        <div class="mt-4 flex gap-2">
-          <button class="openBtn px-3 py-1 rounded bg-indigo-600" data-id="${p.id}">Details</button>
-          <a class="px-3 py-1 rounded border" href="${p.github}" target="_blank">GitHub</a>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simulate form submission
+            alert(`Thank you, ${name}! Your message has been received. I'll get back to you at ${email} soon.`);
+            
+            // Reset form
+            this.reset();
+        });
 
-    // modal logic
-    const modal = document.getElementById('projectModal');
-    document.addEventListener('click', (e) => {
-      if (e.target.matches('.openBtn')) {
-        const proj = PROJECTS.find(x => x.id === e.target.dataset.id);
-        document.getElementById('modalTitle').textContent = proj.title;
-        document.getElementById('modalDesc').textContent = proj.desc;
-        const links = document.getElementById('modalLinks'); links.innerHTML = '';
-        const g = document.createElement('a'); g.href = proj.github; g.textContent = 'GitHub'; g.target = '_blank'; g.className = 'px-3 py-1 rounded border';
-        links.appendChild(g);
-        modal.classList.remove('hidden'); modal.classList.add('flex');
-      }
-      if (e.target.id === 'closeModal' || e.target === modal) {
-        modal.classList.add('hidden'); modal.classList.remove('flex');
-      }
-    });
+        // Project detail buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent === 'View Details') {
+                button.addEventListener('click', function() {
+                    const projectTitle = this.parentElement.querySelector('h3').textContent;
+                    alert(`Opening detailed view for: ${projectTitle}\n\nThis would typically open a detailed project page or modal with more information, code samples, and live demos.`);
+                });
+            }
+        });
 
-    // contact form demo
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      document.getElementById('formMsg').classList.remove('hidden');
-    });
-    document.getElementById('copyEmail').addEventListener('click', ()=>{
-      navigator.clipboard.writeText('asim.analystdata@gmail.com');
-      alert('Email copied!');
-    });
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const skillsSection = document.getElementById('skills');
+            const rect = skillsSection.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }
+        }
 
-    // skill chart
-    const ctx = document.getElementById('skillChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Power BI','SQL','Python','Excel','Data Viz'],
-        datasets: [{ data: [30,25,20,15,10], hoverOffset: 8 }]
-      },
-      options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { color: '#cbd5e1' } } } }
-    });
-  </script>
-</body>
+        // Trigger skill bar animation on scroll
+        let skillsAnimated = false;
+        window.addEventListener('scroll', function() {
+            if (!skillsAnimated) {
+                const skillsSection = document.getElementById('skills');
+                const rect = skillsSection.getBoundingClientRect();
+                
+                if (rect.top < window.innerHeight * 0.8) {
+                    animateSkillBars();
+                    skillsAnimated = true;
+                }
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9864f4c9b29d41b3',t:'MTc1OTA4MDQ5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
